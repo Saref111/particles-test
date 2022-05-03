@@ -7,14 +7,14 @@ canvas.height = window.innerHeight;
 document.body.appendChild(canvas);
 
 const MOUSE_GRAVITY = 0.1;
-const CONNECT_DISTANCE = (canvas.width / 90) * (canvas.height / 90);
+const CONNECT_DISTANCE = (canvas.width / 100) * (canvas.height / 100);
 
 let deltaTime = 0;
 let particles = [];
 let mouse = {
     x: undefined,
     y: undefined,
-    radius: (canvas.width / 80) * (canvas.width / 80),
+    radius: (canvas.width / 90) * (canvas.width / 90),
 }
 
 window.addEventListener('mousemove', (e) => {
@@ -25,6 +25,11 @@ window.addEventListener('mousemove', (e) => {
 window.addEventListener('touchstart', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
+})
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 })
 
 const connect = (particle, i) => {
@@ -73,7 +78,6 @@ const reactOnMouse = (particle) => {
 }
 
 const animate = (timestamp) => {
-    console.log(timestamp);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach((particle, i) => {
         particle.update();
@@ -100,5 +104,7 @@ const init = () => {
     animate();
 }
 
+
+//controls 
 
 init();

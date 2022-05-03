@@ -8,11 +8,34 @@ export default class Particle {
             x: (Math.random() - 0.5) * 10,
             y: (Math.random() - 0.5) * 10
         };
+
+        this.velocityCounter = 0;
+        this.velocityMaxCounter = 10;
+        this.velocityMod = 0.1;
+    }
+
+    countVelocity() {
+        this.velocityCounter++;
+        if (this.velocityCounter > this.velocityMaxCounter) {
+            this.velocityCounter = 0;
+
+            if (this.velocity.x > 0){
+                this.velocity.x -= this.velocityMod;
+            } else if (this.velocity.x < 0){
+                this.velocity.x += this.velocityMod;
+            }
+            if (this.velocity.y > 0){
+                this.velocity.y -= this.velocityMod;
+            } else if (this.velocity.y < 0){
+                this.velocity.y += this.velocityMod;
+            }
+        }
     }
 
     update() {
         this.x += this.velocity.x;
         this.y += this.velocity.y;
+        this.countVelocity();
     }
 
     draw(ctx) {
