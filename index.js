@@ -8,12 +8,21 @@ document.body.appendChild(canvas);
 
 let particles = [];
 
-const animate = (timer) => {
+const changeVelocity = (particle) => {
+    if (particle.x > canvas.width || particle.x < 0) {
+        particle.velocity.x = -particle.velocity.x;
+    }
+    if (particle.y > canvas.height || particle.y < 0) {
+        particle.velocity.y = -particle.velocity.y;
+    }
+}
+
+const animate = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(particle => {
+    particles.forEach((particle) => {
         particle.update();
+        changeVelocity(particle);
         particle.draw(ctx);
-        console.log(particle);
     });
     requestAnimationFrame(animate);
 }
