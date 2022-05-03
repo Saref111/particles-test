@@ -26,6 +26,10 @@ window.addEventListener('touchstart', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
 })
+window.addEventListener('click', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+})
 
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
