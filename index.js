@@ -7,7 +7,7 @@ canvas.height = window.innerHeight;
 document.body.appendChild(canvas);
 
 const MOUSE_GRAVITY = 0.1;
-const CONNECT_DISTANCE = (canvas.width / 50) * (canvas.height / 50);
+const CONNECT_DISTANCE = (canvas.width / 100) * (canvas.height / 100);
 
 let deltaTime = 0;
 let particles = [];
@@ -17,7 +17,6 @@ let mouse = {
     radius: (canvas.width / 90) * (canvas.height / 90),
 }
 
-console.log(mouse);
 console.log(CONNECT_DISTANCE);
 
 window.addEventListener('mousemove', (e) => {
@@ -25,8 +24,8 @@ window.addEventListener('mousemove', (e) => {
     mouse.y = e.clientY;
 })
 window.addEventListener('touchmove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    mouse.x = e.touches[0].clientX;
+    mouse.y = e.touches[0].clientY;
     
 })
 
