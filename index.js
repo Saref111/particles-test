@@ -7,7 +7,7 @@ canvas.height = window.innerHeight;
 document.body.appendChild(canvas);
 
 const MOUSE_GRAVITY = 0.1;
-const CONNECT_DISTANCE = (canvas.width / 100) * (canvas.height / 100);
+const CONNECT_DISTANCE = (canvas.width / 70) * (canvas.height / 70);
 
 let deltaTime = 0;
 let particles = [];

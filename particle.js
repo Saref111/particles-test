@@ -10,7 +10,7 @@ export default class Particle {
         };
 
         this.velocityCounter = 0;
-        this.velocityMaxCounter = 10;
+        this.velocityMaxCounter = 50;
         this.velocityMod = 0.1;
     }
 
